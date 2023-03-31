@@ -18,7 +18,7 @@ tipo : TIPO_INT | TIPO_CHAR | TIPO_FLOAT | TIPO_BOOL;
 
 comando : (declaracao | atribuicao | chamada_print) PV;
 
-inicio : tipo IDENTIFIER CHAVE_E (comando)* CHAVE_D;
+inicio : MAIN CHAVE_E (comando)* CHAVE_D EOF;
 
 // bool
 expr_bool : expression OP_LOGICO expression;
@@ -48,6 +48,7 @@ TIPO_INT : 'int';
 TIPO_CHAR : 'char';
 TIPO_FLOAT : 'float';
 TIPO_BOOL : 'bool';
+MAIN : 'main';
 
 // Operadores aritméticos
 MAIS : '+';
