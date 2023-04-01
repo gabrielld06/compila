@@ -12,9 +12,16 @@ term : factor ((MULT | DIV | MOD) factor)*;
 
 factor : number | PAR_E expression PAR_D;
 
-number : INTEGER | FLOAT | IDENTIFIER;
+number : INTEGER        # Integer
+       | FLOAT          # Float
+       | IDENTIFIER     # Identifier
+       ;
 
-tipo : TIPO_INT | TIPO_CHAR | TIPO_FLOAT | TIPO_BOOL;
+tipo : TIPO_INT         # TipoInt
+     | TIPO_CHAR        # TipoChar
+     | TIPO_FLOAT       # TipoFloat
+     | TIPO_BOOL        # TipoBool
+     ;
 
 comando : (declaracao | atribuicao | chamada_print) PV;
 

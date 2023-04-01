@@ -1,35 +1,159 @@
 from antlr4 import *
 from tngVisitor import tngVisitor
+import inspect # print(inspect.getmembers(token.getTokenSource(), predicate=inspect.ismethod)) # get class methods
 
 if __name__ is not None and "." in __name__:
     from .tngParser import tngParser
 else:
     from tngParser import tngParser
 
+
+# DONE (eu acho) atribuição, declaração e tratamento de expressões
+#   * expressões são resolvidas se possiveis (não possuem variaveis), então já é feita uma mini otimização
+#       no caso de uma expressão possuir uma variavel, é armazenado uma string com ela, no test, 
+#           fon é uma expressão possivel de se resolver completamente e asdfasdf34 não
+# TODO: ver se ta certo o tratamento de expressão
+#       atribuição, declaração e tratamento de expressões booleanas
+#       if, else, for, while
+#       print
+#       visitor para tipos são meio redundantes, é possivel recuperar o valor sem um visitor (linha 138, visitDeclaracao)
+#       ver como isso vai gerar código
+
+
 class tngSemantical(tngVisitor):
     
     def __init__(self):
-        self.symbolTable = {}
+        self.symbolTable = {}   # { 
+                                # 'tipo' : str,
+                                # 'value' : int | float | bool | str | None
+                                # }
 
-        # { cadeia, token, cat, tipo, val}
+        self.errors = []    # { 
+                            # 'error' : 'Variable not declared' | 'Variable already declared', 
+                            # 'id'    : str, 
+                            # 'line'  : int, 
+                            # 'column': int
+                            # }
 
     # Visit a parse tree produced by tngParser#expression.
-    def visitExpression(self, ctx:tngParser.ExpressionContext):        
-        return self.visitChildren(ctx)
+    def visitExpression(self, ctx:tngParser.ExpressionContext):
+        nodes = ctx.getChildCount()
+        result = self.defaultResult()
+
+        c = ctx.getChild(0)
+        left = c.accept(self)
+        
+        for i in range(1, nodes):
+            if not self.shouldVisitNextChild(ctx, result):
+                return result
+
+            c = ctx.getChild(i)
+
+            if c.getText() == '+' or c.getText() == '-': 
+                op = c.getText()
+                continue
+
+            right = c.accept(self)
+
+            if (type(left) == int or type(left) == float) and (type(right) == int or type(right) == float):
+                if op == '+':
+                    left += right
+                else:
+                    left -= right
+            else:
+                left = f"{left}{op}{right}"
+
+        return left
+    
+    # Visit a parse tree produced by tngParser#term.
+    def visitTerm(self, ctx:tngParser.TermContext):
+        nodes = ctx.getChildCount()
+        result = self.defaultResult()
+
+        c = ctx.getChild(0)
+        left = c.accept(self)
+        
+        for i in range(1, nodes):
+            if not self.shouldVisitNextChild(ctx, result):
+                return result
+
+            c = ctx.getChild(i)
+
+            if c.getText() == '*' or c.getText() == '/' or c.getText() == '%': 
+                op = c.getText()
+                continue
+
+            right = c.accept(self)
+
+            if (type(left) == int or type(left) == float) and (type(right) == int or type(right) == float):
+                if op == '*':
+                    return left * right
+                elif op == '/':
+                    return left / right
+                else:
+                    return left % right
+            else:
+                left = f"{left}{op}{right}"
+
+        return left
+
+    # Visit a parse tree produced by tngParser#factor.
+    def visitFactor(self, ctx:tngParser.FactorContext):
+        if ctx.number():
+            return self.visitChildren(ctx)
+        else:
+            return self.visit(ctx.getChild(1))
 
 
     # Visit a parse tree produced by tngParser#atribuicao.
     def visitAtribuicao(self, ctx:tngParser.AtribuicaoContext):
-        return self.visitChildren(ctx)
+        identificador = ctx.IDENTIFIER()[0]     # identificador
+        nome = ctx.IDENTIFIER()[0].getText()    # nome do identificador
+        token = identificador.symbol            # simbolo do identificador
+
+        value = self.visit(ctx.getChild(2))     # resultado da expressão
+
+        if nome in self.symbolTable:
+            if self.symbolTable[nome]['tipo'] == 'int':
+                self.symbolTable[nome]['value'] = (int(value) if type(value) != str else value)
+            elif self.symbolTable['tipo'] == 'float':
+                self.symbolTable[nome]['value'] = (float(value) if type(value) != str else value)
+            elif self.symbolTable['tipo'] == 'bool':
+                self.symbolTable[nome]['value'] = (bool(value) if type(value) != str else value)
+            else:
+                self.symbolTable[nome]['value'] = (str(value) if type(value) != str else value)
+        else:
+            self.errors.append({
+                'error' : 'Variable not declared',
+                'id'    : nome,
+                'line'  : token.line,
+                'column': token.column
+            })
+            
+        return value
 
 
     # Visit a parse tree produced by tngParser#declaracao.
     def visitDeclaracao(self, ctx:tngParser.DeclaracaoContext):
-        obj = { 'cadeia' : '', 'token' : '', 'cat' : '', 'tipo' : '', 'val' : '' }
+        tipo = ctx.tipo().getText()                         # int, float, bool, char ou string
+        identificador = ctx.atribuicao().IDENTIFIER()[0]    # identificador
+        nome = ctx.atribuicao().IDENTIFIER()[0].getText()   # nome do identificador
+        token = identificador.symbol                        # simbolo do identificador
 
-        print(self.visitChildren(ctx))
+        if nome in self.symbolTable:
+            self.errors.append({
+                'error' : 'Variable already declared',
+                'id'    : nome,
+                'line'  : token.line,
+                'column': token.column
+            })
+        else:
+            self.symbolTable[nome] = {
+                'tipo' : tipo,
+                'value' : None
+            }
 
-        return self.visitChildren(ctx)
+        return self.visit(ctx.atribuicao())
 
 
     # Visit a parse tree produced by tngParser#chamada_print.
@@ -37,23 +161,38 @@ class tngSemantical(tngVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by tngParser#term.
-    def visitTerm(self, ctx:tngParser.TermContext):
+    # Visit a parse tree produced by tngParser#Integer.
+    def visitInteger(self, ctx:tngParser.IntegerContext):
+        return int(ctx.getChild(0).getText())
+
+
+    # Visit a parse tree produced by tngParser#Float.
+    def visitFloat(self, ctx:tngParser.FloatContext):
+        return float(ctx.getChild(0).getText())
+
+
+    # Visit a parse tree produced by tngParser#Identifier.
+    def visitIdentifier(self, ctx:tngParser.IdentifierContext):
+        return ctx.IDENTIFIER()
+
+
+    # Visit a parse tree produced by tngParser#TipoInt.
+    def visitTipoInt(self, ctx:tngParser.TipoIntContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by tngParser#factor.
-    def visitFactor(self, ctx:tngParser.FactorContext):
+    # Visit a parse tree produced by tngParser#TipoChar.
+    def visitTipoChar(self, ctx:tngParser.TipoCharContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by tngParser#number.
-    def visitNumber(self, ctx:tngParser.NumberContext):
+    # Visit a parse tree produced by tngParser#TipoFloat.
+    def visitTipoFloat(self, ctx:tngParser.TipoFloatContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by tngParser#tipo.
-    def visitTipo(self, ctx:tngParser.TipoContext):
+    # Visit a parse tree produced by tngParser#TipoBool.
+    def visitTipoBool(self, ctx:tngParser.TipoBoolContext):
         return self.visitChildren(ctx)
 
 
@@ -100,7 +239,6 @@ class tngSemantical(tngVisitor):
     # Visit a parse tree produced by tngParser#while_bloco.
     def visitWhile_bloco(self, ctx:tngParser.While_blocoContext):
         return self.visitChildren(ctx)
-
 
 
 del tngParser

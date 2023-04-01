@@ -10,64 +10,67 @@ else:
 
 def serializedATN():
     return [
-        4,1,42,175,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        4,1,42,182,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
         6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
         2,14,7,14,2,15,7,15,2,16,7,16,1,0,1,0,1,0,5,0,38,8,0,10,0,12,0,41,
         9,0,1,1,1,1,1,1,1,1,1,1,1,1,3,1,49,8,1,1,2,1,2,1,2,1,3,1,3,1,3,1,
         3,1,3,1,4,1,4,1,4,5,4,62,8,4,10,4,12,4,65,9,4,1,5,1,5,1,5,1,5,1,
-        5,3,5,72,8,5,1,6,1,6,1,7,1,7,1,8,1,8,1,8,3,8,81,8,8,1,8,1,8,1,9,
-        1,9,1,9,5,9,88,8,9,10,9,12,9,91,9,9,1,9,1,9,1,9,1,10,1,10,1,10,1,
-        10,1,11,3,11,101,8,11,1,11,1,11,1,11,1,11,1,11,3,11,108,8,11,1,12,
-        1,12,1,12,5,12,113,8,12,10,12,12,12,116,9,12,1,13,1,13,1,13,1,13,
-        1,13,1,13,5,13,124,8,13,10,13,12,13,127,9,13,1,13,1,13,3,13,131,
-        8,13,1,14,1,14,1,14,1,14,5,14,137,8,14,10,14,12,14,140,9,14,1,14,
-        3,14,143,8,14,1,15,1,15,1,15,1,15,1,15,1,15,1,15,1,15,1,15,1,15,
-        5,15,155,8,15,10,15,12,15,158,9,15,1,15,1,15,1,16,1,16,1,16,1,16,
-        1,16,1,16,5,16,168,8,16,10,16,12,16,171,9,16,1,16,1,16,1,16,0,0,
-        17,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,0,6,1,0,12,13,1,
-        0,40,41,1,0,14,16,2,0,37,38,40,40,1,0,7,10,1,0,27,28,175,0,34,1,
-        0,0,0,2,42,1,0,0,0,4,50,1,0,0,0,6,53,1,0,0,0,8,58,1,0,0,0,10,71,
-        1,0,0,0,12,73,1,0,0,0,14,75,1,0,0,0,16,80,1,0,0,0,18,84,1,0,0,0,
-        20,95,1,0,0,0,22,100,1,0,0,0,24,109,1,0,0,0,26,117,1,0,0,0,28,132,
-        1,0,0,0,30,144,1,0,0,0,32,161,1,0,0,0,34,39,3,8,4,0,35,36,7,0,0,
-        0,36,38,3,8,4,0,37,35,1,0,0,0,38,41,1,0,0,0,39,37,1,0,0,0,39,40,
-        1,0,0,0,40,1,1,0,0,0,41,39,1,0,0,0,42,43,5,40,0,0,43,48,5,19,0,0,
-        44,49,3,0,0,0,45,49,5,41,0,0,46,49,5,39,0,0,47,49,5,40,0,0,48,44,
-        1,0,0,0,48,45,1,0,0,0,48,46,1,0,0,0,48,47,1,0,0,0,49,3,1,0,0,0,50,
-        51,3,14,7,0,51,52,3,2,1,0,52,5,1,0,0,0,53,54,5,6,0,0,54,55,5,30,
-        0,0,55,56,7,1,0,0,56,57,5,31,0,0,57,7,1,0,0,0,58,63,3,10,5,0,59,
-        60,7,2,0,0,60,62,3,10,5,0,61,59,1,0,0,0,62,65,1,0,0,0,63,61,1,0,
-        0,0,63,64,1,0,0,0,64,9,1,0,0,0,65,63,1,0,0,0,66,72,3,12,6,0,67,68,
-        5,30,0,0,68,69,3,0,0,0,69,70,5,31,0,0,70,72,1,0,0,0,71,66,1,0,0,
-        0,71,67,1,0,0,0,72,11,1,0,0,0,73,74,7,3,0,0,74,13,1,0,0,0,75,76,
-        7,4,0,0,76,15,1,0,0,0,77,81,3,4,2,0,78,81,3,2,1,0,79,81,3,6,3,0,
-        80,77,1,0,0,0,80,78,1,0,0,0,80,79,1,0,0,0,81,82,1,0,0,0,82,83,5,
-        34,0,0,83,17,1,0,0,0,84,85,5,11,0,0,85,89,5,32,0,0,86,88,3,16,8,
-        0,87,86,1,0,0,0,88,91,1,0,0,0,89,87,1,0,0,0,89,90,1,0,0,0,90,92,
-        1,0,0,0,91,89,1,0,0,0,92,93,5,33,0,0,93,94,5,0,0,1,94,19,1,0,0,0,
-        95,96,3,0,0,0,96,97,5,20,0,0,97,98,3,0,0,0,98,21,1,0,0,0,99,101,
-        5,29,0,0,100,99,1,0,0,0,100,101,1,0,0,0,101,107,1,0,0,0,102,103,
-        5,30,0,0,103,104,3,20,10,0,104,105,5,31,0,0,105,108,1,0,0,0,106,
-        108,3,20,10,0,107,102,1,0,0,0,107,106,1,0,0,0,108,23,1,0,0,0,109,
-        114,3,22,11,0,110,111,7,5,0,0,111,113,3,22,11,0,112,110,1,0,0,0,
-        113,116,1,0,0,0,114,112,1,0,0,0,114,115,1,0,0,0,115,25,1,0,0,0,116,
-        114,1,0,0,0,117,118,5,1,0,0,118,119,5,30,0,0,119,120,3,24,12,0,120,
-        121,5,31,0,0,121,125,5,32,0,0,122,124,3,16,8,0,123,122,1,0,0,0,124,
-        127,1,0,0,0,125,123,1,0,0,0,125,126,1,0,0,0,126,128,1,0,0,0,127,
-        125,1,0,0,0,128,130,5,33,0,0,129,131,3,28,14,0,130,129,1,0,0,0,130,
-        131,1,0,0,0,131,27,1,0,0,0,132,142,5,2,0,0,133,143,3,26,13,0,134,
-        138,5,32,0,0,135,137,3,16,8,0,136,135,1,0,0,0,137,140,1,0,0,0,138,
-        136,1,0,0,0,138,139,1,0,0,0,139,141,1,0,0,0,140,138,1,0,0,0,141,
-        143,5,33,0,0,142,133,1,0,0,0,142,134,1,0,0,0,143,29,1,0,0,0,144,
-        145,5,3,0,0,145,146,5,30,0,0,146,147,3,2,1,0,147,148,5,34,0,0,148,
-        149,3,24,12,0,149,150,5,34,0,0,150,151,3,2,1,0,151,152,5,31,0,0,
-        152,156,5,32,0,0,153,155,3,16,8,0,154,153,1,0,0,0,155,158,1,0,0,
-        0,156,154,1,0,0,0,156,157,1,0,0,0,157,159,1,0,0,0,158,156,1,0,0,
-        0,159,160,5,33,0,0,160,31,1,0,0,0,161,162,5,3,0,0,162,163,5,30,0,
-        0,163,164,3,24,12,0,164,165,5,31,0,0,165,169,5,32,0,0,166,168,3,
-        16,8,0,167,166,1,0,0,0,168,171,1,0,0,0,169,167,1,0,0,0,169,170,1,
-        0,0,0,170,172,1,0,0,0,171,169,1,0,0,0,172,173,5,33,0,0,173,33,1,
-        0,0,0,15,39,48,63,71,80,89,100,107,114,125,130,138,142,156,169
+        5,3,5,72,8,5,1,6,1,6,1,6,3,6,77,8,6,1,7,1,7,1,7,1,7,3,7,83,8,7,1,
+        8,1,8,1,8,3,8,88,8,8,1,8,1,8,1,9,1,9,1,9,5,9,95,8,9,10,9,12,9,98,
+        9,9,1,9,1,9,1,9,1,10,1,10,1,10,1,10,1,11,3,11,108,8,11,1,11,1,11,
+        1,11,1,11,1,11,3,11,115,8,11,1,12,1,12,1,12,5,12,120,8,12,10,12,
+        12,12,123,9,12,1,13,1,13,1,13,1,13,1,13,1,13,5,13,131,8,13,10,13,
+        12,13,134,9,13,1,13,1,13,3,13,138,8,13,1,14,1,14,1,14,1,14,5,14,
+        144,8,14,10,14,12,14,147,9,14,1,14,3,14,150,8,14,1,15,1,15,1,15,
+        1,15,1,15,1,15,1,15,1,15,1,15,1,15,5,15,162,8,15,10,15,12,15,165,
+        9,15,1,15,1,15,1,16,1,16,1,16,1,16,1,16,1,16,5,16,175,8,16,10,16,
+        12,16,178,9,16,1,16,1,16,1,16,0,0,17,0,2,4,6,8,10,12,14,16,18,20,
+        22,24,26,28,30,32,0,4,1,0,12,13,1,0,40,41,1,0,14,16,1,0,27,28,187,
+        0,34,1,0,0,0,2,42,1,0,0,0,4,50,1,0,0,0,6,53,1,0,0,0,8,58,1,0,0,0,
+        10,71,1,0,0,0,12,76,1,0,0,0,14,82,1,0,0,0,16,87,1,0,0,0,18,91,1,
+        0,0,0,20,102,1,0,0,0,22,107,1,0,0,0,24,116,1,0,0,0,26,124,1,0,0,
+        0,28,139,1,0,0,0,30,151,1,0,0,0,32,168,1,0,0,0,34,39,3,8,4,0,35,
+        36,7,0,0,0,36,38,3,8,4,0,37,35,1,0,0,0,38,41,1,0,0,0,39,37,1,0,0,
+        0,39,40,1,0,0,0,40,1,1,0,0,0,41,39,1,0,0,0,42,43,5,40,0,0,43,48,
+        5,19,0,0,44,49,3,0,0,0,45,49,5,41,0,0,46,49,5,39,0,0,47,49,5,40,
+        0,0,48,44,1,0,0,0,48,45,1,0,0,0,48,46,1,0,0,0,48,47,1,0,0,0,49,3,
+        1,0,0,0,50,51,3,14,7,0,51,52,3,2,1,0,52,5,1,0,0,0,53,54,5,6,0,0,
+        54,55,5,30,0,0,55,56,7,1,0,0,56,57,5,31,0,0,57,7,1,0,0,0,58,63,3,
+        10,5,0,59,60,7,2,0,0,60,62,3,10,5,0,61,59,1,0,0,0,62,65,1,0,0,0,
+        63,61,1,0,0,0,63,64,1,0,0,0,64,9,1,0,0,0,65,63,1,0,0,0,66,72,3,12,
+        6,0,67,68,5,30,0,0,68,69,3,0,0,0,69,70,5,31,0,0,70,72,1,0,0,0,71,
+        66,1,0,0,0,71,67,1,0,0,0,72,11,1,0,0,0,73,77,5,37,0,0,74,77,5,38,
+        0,0,75,77,5,40,0,0,76,73,1,0,0,0,76,74,1,0,0,0,76,75,1,0,0,0,77,
+        13,1,0,0,0,78,83,5,7,0,0,79,83,5,8,0,0,80,83,5,9,0,0,81,83,5,10,
+        0,0,82,78,1,0,0,0,82,79,1,0,0,0,82,80,1,0,0,0,82,81,1,0,0,0,83,15,
+        1,0,0,0,84,88,3,4,2,0,85,88,3,2,1,0,86,88,3,6,3,0,87,84,1,0,0,0,
+        87,85,1,0,0,0,87,86,1,0,0,0,88,89,1,0,0,0,89,90,5,34,0,0,90,17,1,
+        0,0,0,91,92,5,11,0,0,92,96,5,32,0,0,93,95,3,16,8,0,94,93,1,0,0,0,
+        95,98,1,0,0,0,96,94,1,0,0,0,96,97,1,0,0,0,97,99,1,0,0,0,98,96,1,
+        0,0,0,99,100,5,33,0,0,100,101,5,0,0,1,101,19,1,0,0,0,102,103,3,0,
+        0,0,103,104,5,20,0,0,104,105,3,0,0,0,105,21,1,0,0,0,106,108,5,29,
+        0,0,107,106,1,0,0,0,107,108,1,0,0,0,108,114,1,0,0,0,109,110,5,30,
+        0,0,110,111,3,20,10,0,111,112,5,31,0,0,112,115,1,0,0,0,113,115,3,
+        20,10,0,114,109,1,0,0,0,114,113,1,0,0,0,115,23,1,0,0,0,116,121,3,
+        22,11,0,117,118,7,3,0,0,118,120,3,22,11,0,119,117,1,0,0,0,120,123,
+        1,0,0,0,121,119,1,0,0,0,121,122,1,0,0,0,122,25,1,0,0,0,123,121,1,
+        0,0,0,124,125,5,1,0,0,125,126,5,30,0,0,126,127,3,24,12,0,127,128,
+        5,31,0,0,128,132,5,32,0,0,129,131,3,16,8,0,130,129,1,0,0,0,131,134,
+        1,0,0,0,132,130,1,0,0,0,132,133,1,0,0,0,133,135,1,0,0,0,134,132,
+        1,0,0,0,135,137,5,33,0,0,136,138,3,28,14,0,137,136,1,0,0,0,137,138,
+        1,0,0,0,138,27,1,0,0,0,139,149,5,2,0,0,140,150,3,26,13,0,141,145,
+        5,32,0,0,142,144,3,16,8,0,143,142,1,0,0,0,144,147,1,0,0,0,145,143,
+        1,0,0,0,145,146,1,0,0,0,146,148,1,0,0,0,147,145,1,0,0,0,148,150,
+        5,33,0,0,149,140,1,0,0,0,149,141,1,0,0,0,150,29,1,0,0,0,151,152,
+        5,3,0,0,152,153,5,30,0,0,153,154,3,2,1,0,154,155,5,34,0,0,155,156,
+        3,24,12,0,156,157,5,34,0,0,157,158,3,2,1,0,158,159,5,31,0,0,159,
+        163,5,32,0,0,160,162,3,16,8,0,161,160,1,0,0,0,162,165,1,0,0,0,163,
+        161,1,0,0,0,163,164,1,0,0,0,164,166,1,0,0,0,165,163,1,0,0,0,166,
+        167,5,33,0,0,167,31,1,0,0,0,168,169,5,3,0,0,169,170,5,30,0,0,170,
+        171,3,24,12,0,171,172,5,31,0,0,172,176,5,32,0,0,173,175,3,16,8,0,
+        174,173,1,0,0,0,175,178,1,0,0,0,176,174,1,0,0,0,176,177,1,0,0,0,
+        177,179,1,0,0,0,178,176,1,0,0,0,179,180,5,33,0,0,180,33,1,0,0,0,
+        17,39,48,63,71,76,82,87,96,107,114,121,132,137,145,149,163,176
     ]
 
 class tngParser ( Parser ):
@@ -636,32 +639,86 @@ class tngParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def INTEGER(self):
-            return self.getToken(tngParser.INTEGER, 0)
-
-        def FLOAT(self):
-            return self.getToken(tngParser.FLOAT, 0)
-
-        def IDENTIFIER(self):
-            return self.getToken(tngParser.IDENTIFIER, 0)
 
         def getRuleIndex(self):
             return tngParser.RULE_number
 
+     
+        def copyFrom(self, ctx:ParserRuleContext):
+            super().copyFrom(ctx)
+
+
+
+    class IntegerContext(NumberContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a tngParser.NumberContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def INTEGER(self):
+            return self.getToken(tngParser.INTEGER, 0)
+
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterNumber" ):
-                listener.enterNumber(self)
+            if hasattr( listener, "enterInteger" ):
+                listener.enterInteger(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitNumber" ):
-                listener.exitNumber(self)
+            if hasattr( listener, "exitInteger" ):
+                listener.exitInteger(self)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitNumber" ):
-                return visitor.visitNumber(self)
+            if hasattr( visitor, "visitInteger" ):
+                return visitor.visitInteger(self)
             else:
                 return visitor.visitChildren(self)
 
+
+    class FloatContext(NumberContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a tngParser.NumberContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def FLOAT(self):
+            return self.getToken(tngParser.FLOAT, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterFloat" ):
+                listener.enterFloat(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitFloat" ):
+                listener.exitFloat(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFloat" ):
+                return visitor.visitFloat(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class IdentifierContext(NumberContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a tngParser.NumberContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def IDENTIFIER(self):
+            return self.getToken(tngParser.IDENTIFIER, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterIdentifier" ):
+                listener.enterIdentifier(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitIdentifier" ):
+                listener.exitIdentifier(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIdentifier" ):
+                return visitor.visitIdentifier(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -669,16 +726,31 @@ class tngParser ( Parser ):
 
         localctx = tngParser.NumberContext(self, self._ctx, self.state)
         self.enterRule(localctx, 12, self.RULE_number)
-        self._la = 0 # Token type
         try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 73
-            _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 1511828488192) != 0)):
-                self._errHandler.recoverInline(self)
+            self.state = 76
+            self._errHandler.sync(self)
+            token = self._input.LA(1)
+            if token in [37]:
+                localctx = tngParser.IntegerContext(self, localctx)
+                self.enterOuterAlt(localctx, 1)
+                self.state = 73
+                self.match(tngParser.INTEGER)
+                pass
+            elif token in [38]:
+                localctx = tngParser.FloatContext(self, localctx)
+                self.enterOuterAlt(localctx, 2)
+                self.state = 74
+                self.match(tngParser.FLOAT)
+                pass
+            elif token in [40]:
+                localctx = tngParser.IdentifierContext(self, localctx)
+                self.enterOuterAlt(localctx, 3)
+                self.state = 75
+                self.match(tngParser.IDENTIFIER)
+                pass
             else:
-                self._errHandler.reportMatch(self)
-                self.consume()
+                raise NoViableAltException(self)
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -695,35 +767,110 @@ class tngParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def TIPO_INT(self):
-            return self.getToken(tngParser.TIPO_INT, 0)
-
-        def TIPO_CHAR(self):
-            return self.getToken(tngParser.TIPO_CHAR, 0)
-
-        def TIPO_FLOAT(self):
-            return self.getToken(tngParser.TIPO_FLOAT, 0)
-
-        def TIPO_BOOL(self):
-            return self.getToken(tngParser.TIPO_BOOL, 0)
 
         def getRuleIndex(self):
             return tngParser.RULE_tipo
 
+     
+        def copyFrom(self, ctx:ParserRuleContext):
+            super().copyFrom(ctx)
+
+
+
+    class TipoBoolContext(TipoContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a tngParser.TipoContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def TIPO_BOOL(self):
+            return self.getToken(tngParser.TIPO_BOOL, 0)
+
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterTipo" ):
-                listener.enterTipo(self)
+            if hasattr( listener, "enterTipoBool" ):
+                listener.enterTipoBool(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitTipo" ):
-                listener.exitTipo(self)
+            if hasattr( listener, "exitTipoBool" ):
+                listener.exitTipoBool(self)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitTipo" ):
-                return visitor.visitTipo(self)
+            if hasattr( visitor, "visitTipoBool" ):
+                return visitor.visitTipoBool(self)
             else:
                 return visitor.visitChildren(self)
 
+
+    class TipoCharContext(TipoContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a tngParser.TipoContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def TIPO_CHAR(self):
+            return self.getToken(tngParser.TIPO_CHAR, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterTipoChar" ):
+                listener.enterTipoChar(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitTipoChar" ):
+                listener.exitTipoChar(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitTipoChar" ):
+                return visitor.visitTipoChar(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class TipoFloatContext(TipoContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a tngParser.TipoContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def TIPO_FLOAT(self):
+            return self.getToken(tngParser.TIPO_FLOAT, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterTipoFloat" ):
+                listener.enterTipoFloat(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitTipoFloat" ):
+                listener.exitTipoFloat(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitTipoFloat" ):
+                return visitor.visitTipoFloat(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class TipoIntContext(TipoContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a tngParser.TipoContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def TIPO_INT(self):
+            return self.getToken(tngParser.TIPO_INT, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterTipoInt" ):
+                listener.enterTipoInt(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitTipoInt" ):
+                listener.exitTipoInt(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitTipoInt" ):
+                return visitor.visitTipoInt(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -731,16 +878,37 @@ class tngParser ( Parser ):
 
         localctx = tngParser.TipoContext(self, self._ctx, self.state)
         self.enterRule(localctx, 14, self.RULE_tipo)
-        self._la = 0 # Token type
         try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 75
-            _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 1920) != 0)):
-                self._errHandler.recoverInline(self)
+            self.state = 82
+            self._errHandler.sync(self)
+            token = self._input.LA(1)
+            if token in [7]:
+                localctx = tngParser.TipoIntContext(self, localctx)
+                self.enterOuterAlt(localctx, 1)
+                self.state = 78
+                self.match(tngParser.TIPO_INT)
+                pass
+            elif token in [8]:
+                localctx = tngParser.TipoCharContext(self, localctx)
+                self.enterOuterAlt(localctx, 2)
+                self.state = 79
+                self.match(tngParser.TIPO_CHAR)
+                pass
+            elif token in [9]:
+                localctx = tngParser.TipoFloatContext(self, localctx)
+                self.enterOuterAlt(localctx, 3)
+                self.state = 80
+                self.match(tngParser.TIPO_FLOAT)
+                pass
+            elif token in [10]:
+                localctx = tngParser.TipoBoolContext(self, localctx)
+                self.enterOuterAlt(localctx, 4)
+                self.state = 81
+                self.match(tngParser.TIPO_BOOL)
+                pass
             else:
-                self._errHandler.reportMatch(self)
-                self.consume()
+                raise NoViableAltException(self)
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -798,25 +966,25 @@ class tngParser ( Parser ):
         self.enterRule(localctx, 16, self.RULE_comando)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 80
+            self.state = 87
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [7, 8, 9, 10]:
-                self.state = 77
+                self.state = 84
                 self.declaracao()
                 pass
             elif token in [40]:
-                self.state = 78
+                self.state = 85
                 self.atribuicao()
                 pass
             elif token in [6]:
-                self.state = 79
+                self.state = 86
                 self.chamada_print()
                 pass
             else:
                 raise NoViableAltException(self)
 
-            self.state = 82
+            self.state = 89
             self.match(tngParser.PV)
         except RecognitionException as re:
             localctx.exception = re
@@ -880,23 +1048,23 @@ class tngParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 84
+            self.state = 91
             self.match(tngParser.MAIN)
-            self.state = 85
+            self.state = 92
             self.match(tngParser.CHAVE_E)
-            self.state = 89
+            self.state = 96
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & 1099511629760) != 0):
-                self.state = 86
+                self.state = 93
                 self.comando()
-                self.state = 91
+                self.state = 98
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 92
+            self.state = 99
             self.match(tngParser.CHAVE_D)
-            self.state = 93
+            self.state = 100
             self.match(tngParser.EOF)
         except RecognitionException as re:
             localctx.exception = re
@@ -950,11 +1118,11 @@ class tngParser ( Parser ):
         self.enterRule(localctx, 20, self.RULE_expr_bool)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 95
+            self.state = 102
             self.expression()
-            self.state = 96
+            self.state = 103
             self.match(tngParser.OP_LOGICO)
-            self.state = 97
+            self.state = 104
             self.expression()
         except RecognitionException as re:
             localctx.exception = re
@@ -1012,28 +1180,28 @@ class tngParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 100
+            self.state = 107
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==29:
-                self.state = 99
+                self.state = 106
                 self.match(tngParser.NOT)
 
 
-            self.state = 107
+            self.state = 114
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,7,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,9,self._ctx)
             if la_ == 1:
-                self.state = 102
+                self.state = 109
                 self.match(tngParser.PAR_E)
-                self.state = 103
+                self.state = 110
                 self.expr_bool()
-                self.state = 104
+                self.state = 111
                 self.match(tngParser.PAR_D)
                 pass
 
             elif la_ == 2:
-                self.state = 106
+                self.state = 113
                 self.expr_bool()
                 pass
 
@@ -1100,22 +1268,22 @@ class tngParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 109
+            self.state = 116
             self.fator_bool()
-            self.state = 114
+            self.state = 121
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==27 or _la==28:
-                self.state = 110
+                self.state = 117
                 _la = self._input.LA(1)
                 if not(_la==27 or _la==28):
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
                     self.consume()
-                self.state = 111
+                self.state = 118
                 self.fator_bool()
-                self.state = 116
+                self.state = 123
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -1192,33 +1360,33 @@ class tngParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 117
+            self.state = 124
             self.match(tngParser.IF)
-            self.state = 118
-            self.match(tngParser.PAR_E)
-            self.state = 119
-            self.cond()
-            self.state = 120
-            self.match(tngParser.PAR_D)
-            self.state = 121
-            self.match(tngParser.CHAVE_E)
             self.state = 125
+            self.match(tngParser.PAR_E)
+            self.state = 126
+            self.cond()
+            self.state = 127
+            self.match(tngParser.PAR_D)
+            self.state = 128
+            self.match(tngParser.CHAVE_E)
+            self.state = 132
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & 1099511629760) != 0):
-                self.state = 122
+                self.state = 129
                 self.comando()
-                self.state = 127
+                self.state = 134
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 128
+            self.state = 135
             self.match(tngParser.CHAVE_D)
-            self.state = 130
+            self.state = 137
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,10,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,12,self._ctx)
             if la_ == 1:
-                self.state = 129
+                self.state = 136
                 self.else_bloco()
 
 
@@ -1285,29 +1453,29 @@ class tngParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 132
+            self.state = 139
             self.match(tngParser.ELSE)
-            self.state = 142
+            self.state = 149
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [1]:
-                self.state = 133
+                self.state = 140
                 self.if_bloco()
                 pass
             elif token in [32]:
-                self.state = 134
+                self.state = 141
                 self.match(tngParser.CHAVE_E)
-                self.state = 138
+                self.state = 145
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while (((_la) & ~0x3f) == 0 and ((1 << _la) & 1099511629760) != 0):
-                    self.state = 135
+                    self.state = 142
                     self.comando()
-                    self.state = 140
+                    self.state = 147
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
 
-                self.state = 141
+                self.state = 148
                 self.match(tngParser.CHAVE_D)
                 pass
             else:
@@ -1395,35 +1563,35 @@ class tngParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 144
-            self.match(tngParser.FOR)
-            self.state = 145
-            self.match(tngParser.PAR_E)
-            self.state = 146
-            self.atribuicao()
-            self.state = 147
-            self.match(tngParser.PV)
-            self.state = 148
-            self.cond()
-            self.state = 149
-            self.match(tngParser.PV)
-            self.state = 150
-            self.atribuicao()
             self.state = 151
-            self.match(tngParser.PAR_D)
+            self.match(tngParser.FOR)
             self.state = 152
-            self.match(tngParser.CHAVE_E)
+            self.match(tngParser.PAR_E)
+            self.state = 153
+            self.atribuicao()
+            self.state = 154
+            self.match(tngParser.PV)
+            self.state = 155
+            self.cond()
             self.state = 156
+            self.match(tngParser.PV)
+            self.state = 157
+            self.atribuicao()
+            self.state = 158
+            self.match(tngParser.PAR_D)
+            self.state = 159
+            self.match(tngParser.CHAVE_E)
+            self.state = 163
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & 1099511629760) != 0):
-                self.state = 153
+                self.state = 160
                 self.comando()
-                self.state = 158
+                self.state = 165
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 159
+            self.state = 166
             self.match(tngParser.CHAVE_D)
         except RecognitionException as re:
             localctx.exception = re
@@ -1494,27 +1662,27 @@ class tngParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 161
+            self.state = 168
             self.match(tngParser.FOR)
-            self.state = 162
-            self.match(tngParser.PAR_E)
-            self.state = 163
-            self.cond()
-            self.state = 164
-            self.match(tngParser.PAR_D)
-            self.state = 165
-            self.match(tngParser.CHAVE_E)
             self.state = 169
+            self.match(tngParser.PAR_E)
+            self.state = 170
+            self.cond()
+            self.state = 171
+            self.match(tngParser.PAR_D)
+            self.state = 172
+            self.match(tngParser.CHAVE_E)
+            self.state = 176
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & 1099511629760) != 0):
-                self.state = 166
+                self.state = 173
                 self.comando()
-                self.state = 171
+                self.state = 178
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 172
+            self.state = 179
             self.match(tngParser.CHAVE_D)
         except RecognitionException as re:
             localctx.exception = re

@@ -2,9 +2,10 @@ from antlr4 import *
 from tngLexer import tngLexer
 from tngParser import tngParser
 from tngVisitor import tngVisitor
+from tngSemantical import tngSemantical
 
 # Open the input file
-with open('test.tng', 'r') as f:
+with open('tests/test.tng', 'r') as f:
     input_stream = InputStream(f.read())
 
 # Create a lexer for the input
@@ -25,5 +26,7 @@ parser = tngParser(token_stream)
 tree = parser.inicio()
 
 # Traverse the syntax tree using the custom visitor object
-visitor = tngVisitor()
+visitor = tngSemantical()
 visitor.visit(tree)
+print(visitor.symbolTable)
+print(visitor.errors)

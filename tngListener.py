@@ -62,21 +62,66 @@ class tngListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by tngParser#number.
-    def enterNumber(self, ctx:tngParser.NumberContext):
+    # Enter a parse tree produced by tngParser#Integer.
+    def enterInteger(self, ctx:tngParser.IntegerContext):
         pass
 
-    # Exit a parse tree produced by tngParser#number.
-    def exitNumber(self, ctx:tngParser.NumberContext):
+    # Exit a parse tree produced by tngParser#Integer.
+    def exitInteger(self, ctx:tngParser.IntegerContext):
         pass
 
 
-    # Enter a parse tree produced by tngParser#tipo.
-    def enterTipo(self, ctx:tngParser.TipoContext):
+    # Enter a parse tree produced by tngParser#Float.
+    def enterFloat(self, ctx:tngParser.FloatContext):
         pass
 
-    # Exit a parse tree produced by tngParser#tipo.
-    def exitTipo(self, ctx:tngParser.TipoContext):
+    # Exit a parse tree produced by tngParser#Float.
+    def exitFloat(self, ctx:tngParser.FloatContext):
+        pass
+
+
+    # Enter a parse tree produced by tngParser#Identifier.
+    def enterIdentifier(self, ctx:tngParser.IdentifierContext):
+        pass
+
+    # Exit a parse tree produced by tngParser#Identifier.
+    def exitIdentifier(self, ctx:tngParser.IdentifierContext):
+        pass
+
+
+    # Enter a parse tree produced by tngParser#TipoInt.
+    def enterTipoInt(self, ctx:tngParser.TipoIntContext):
+        pass
+
+    # Exit a parse tree produced by tngParser#TipoInt.
+    def exitTipoInt(self, ctx:tngParser.TipoIntContext):
+        pass
+
+
+    # Enter a parse tree produced by tngParser#TipoChar.
+    def enterTipoChar(self, ctx:tngParser.TipoCharContext):
+        pass
+
+    # Exit a parse tree produced by tngParser#TipoChar.
+    def exitTipoChar(self, ctx:tngParser.TipoCharContext):
+        pass
+
+
+    # Enter a parse tree produced by tngParser#TipoFloat.
+    def enterTipoFloat(self, ctx:tngParser.TipoFloatContext):
+        pass
+
+    # Exit a parse tree produced by tngParser#TipoFloat.
+    def exitTipoFloat(self, ctx:tngParser.TipoFloatContext):
+        pass
+
+
+    # Enter a parse tree produced by tngParser#TipoBool.
+    def enterTipoBool(self, ctx:tngParser.TipoBoolContext):
+        pass
+
+    # Exit a parse tree produced by tngParser#TipoBool.
+    def exitTipoBool(self, ctx:tngParser.TipoBoolContext):
         pass
 
 

@@ -1,9 +1,7 @@
 main {
-    int fon = 2 + 331   -4 / (34 * 3) % 45;
+    int fon = 2 + 3 * 4 - (5 + 3);
 
-    fon = 2;
-
-    asdfasdf34 = fon * 3;
+    int asdfasdf34 = 2 + 2 - fon / 3;
 
     print("Hello World\n");
 

@@ -39,13 +39,38 @@ class tngVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by tngParser#number.
-    def visitNumber(self, ctx:tngParser.NumberContext):
+    # Visit a parse tree produced by tngParser#Integer.
+    def visitInteger(self, ctx:tngParser.IntegerContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by tngParser#tipo.
-    def visitTipo(self, ctx:tngParser.TipoContext):
+    # Visit a parse tree produced by tngParser#Float.
+    def visitFloat(self, ctx:tngParser.FloatContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by tngParser#Identifier.
+    def visitIdentifier(self, ctx:tngParser.IdentifierContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by tngParser#TipoInt.
+    def visitTipoInt(self, ctx:tngParser.TipoIntContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by tngParser#TipoChar.
+    def visitTipoChar(self, ctx:tngParser.TipoCharContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by tngParser#TipoFloat.
+    def visitTipoFloat(self, ctx:tngParser.TipoFloatContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by tngParser#TipoBool.
+    def visitTipoBool(self, ctx:tngParser.TipoBoolContext):
         return self.visitChildren(ctx)
 
 
