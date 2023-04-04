@@ -20,7 +20,7 @@ else:
 #       ver como isso vai gerar código
 
 
-class tngSemantical(tngVisitor):
+class tngSemantic(tngVisitor):
     
     def __init__(self):
         self.symbolTable = {}   # { 
