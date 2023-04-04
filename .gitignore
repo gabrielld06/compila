@@ -1,2 +1,4 @@
 py3antlr4book
+javaFiles/*.java
+javaFiles/*.class
 __pycache__
