@@ -3,7 +3,13 @@ main {
 
     int asdfasdf34 = 2 + 2 - fon / 3;
 
-    print("Hello World\n");
+    print("Hello World!");
 
-    print(fon);
+    print(asdfasdf34);
+
+    if(fon != asdfasdf34 and False) {
+        print(fon);
+        print(asdfasdf34);
+    }
+
 }

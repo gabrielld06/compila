@@ -3,6 +3,7 @@ from tngLexer import tngLexer
 from tngParser import tngParser
 from tngVisitor import tngVisitor
 from tngSemantic import tngSemantic
+import os, subprocess
 
 # Open the input file
 with open('tests/test.tng', 'r') as f:
@@ -30,3 +31,12 @@ visitor = tngSemantic()
 visitor.visit(tree)
 print(visitor.symbolTable)
 print(visitor.errors)
+# print(visitor.code)
+
+with open("output.cpp", "w") as out:
+    out.write(visitor.code)
+    myEnv = os.environ.copy()
+    myEnv["PATH"] = myEnv["PATH"]+";"+os.path.abspath("external/mingw64")
+    command = ["g++.exe", "output.cpp", "-std=c++11", "-Os", "-o", "output"]
+    process = subprocess.Popen(command, shell=True, env=myEnv, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    out.close()

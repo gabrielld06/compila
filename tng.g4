@@ -2,11 +2,11 @@ grammar tng;
 
 expression : term ((MAIS | MENOS) term)*;
 
-atribuicao : IDENTIFIER ATRIB (expression | STRING | BOOL | IDENTIFIER);
+atribuicao : IDENTIFIER ATRIB (expression | STRING | BOOL | IDENTIFIER) PV;
 
 declaracao : tipo atribuicao;
 
-chamada_print : PRINT PAR_E (STRING | IDENTIFIER) PAR_D;
+chamada_print : PRINT PAR_E (STRING | IDENTIFIER) PAR_D PV;
 
 term : factor ((MULT | DIV | MOD) factor)*;
 
@@ -23,12 +23,12 @@ tipo : TIPO_INT         # TipoInt
      | TIPO_BOOL        # TipoBool
      ;
 
-comando : (declaracao | atribuicao | chamada_print) PV;
+comando : (declaracao | atribuicao | chamada_print | if_bloco | for_bloco | while_bloco);
 
 inicio : MAIN CHAVE_E (comando)* CHAVE_D EOF;
 
 // bool
-expr_bool : expression OP_LOGICO expression;
+expr_bool : (expression OP_LOGICO expression) | BOOL;
 fator_bool : NOT? (PAR_E expr_bool PAR_D | expr_bool);
 cond : fator_bool ((AND | OR) fator_bool)*;
 
@@ -39,7 +39,7 @@ if_bloco : IF PAR_E cond PAR_D CHAVE_E (comando)* CHAVE_D else_bloco?;
 else_bloco : ELSE (if_bloco | CHAVE_E (comando)* CHAVE_D);
 
 // for
-for_bloco : FOR PAR_E atribuicao PV cond PV atribuicao PAR_D CHAVE_E (comando)* CHAVE_D;
+for_bloco : FOR PAR_E atribuicao? PV cond? PV atribuicao? PAR_D CHAVE_E (comando)* CHAVE_D;
 
 // while
 while_bloco : FOR PAR_E cond PAR_D CHAVE_E (comando)* CHAVE_D;
