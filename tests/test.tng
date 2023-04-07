@@ -1,15 +1,11 @@
 main {
     int fon = 2 + 3 * 4 - (5 + 3);
 
-    int asdfasdf34 = 2 + 2 - fon / 3;
+    string x = "2+fon";
+
+    int asdfasdf34 = 2+x;
 
     print("Hello World!");
 
     print(asdfasdf34);
-
-    if(fon != asdfasdf34 and False) {
-        print(fon);
-        print(asdfasdf34);
-    }
-
 }

@@ -33,10 +33,14 @@ print(visitor.symbolTable)
 print(visitor.errors)
 # print(visitor.code)
 
-with open("output.cpp", "w") as out:
-    out.write(visitor.code)
-    myEnv = os.environ.copy()
-    myEnv["PATH"] = myEnv["PATH"]+";"+os.path.abspath("external/mingw64")
-    command = ["g++.exe", "output.cpp", "-std=c++11", "-Os", "-o", "output"]
-    process = subprocess.Popen(command, shell=True, env=myEnv, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    out.close()
+if visitor.compile():
+    with open("output.cpp", "w") as out:
+        out.write(visitor.code)
+        myEnv = os.environ.copy()
+        myEnv["PATH"] = myEnv["PATH"]+";"+os.path.abspath("external/mingw64")
+        command = ["g++.exe", "output.cpp", "-std=c++17", "-Os", "-o", "output"]
+        process = subprocess.Popen(command, shell=True, env=myEnv, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        out.close()
+        print('Output compiled successfully')
+else:
+    print('Errors were found. Exiting compiler...')

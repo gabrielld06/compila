@@ -2,12 +2,9 @@
 using namespace std;
 int main(){
 int fon = 6;
-int asdfasdf34 = 4-fon/3;
+string x = "2+fon";
+int asdfasdf34 = 2+fon;
 cout << "Hello World!" << endl;
 cout << asdfasdf34 << endl;
-if(fon!=asdfasdf34 and false ) {
-cout << fon << endl;
-cout << asdfasdf34 << endl;
-}
 return 0;
 }

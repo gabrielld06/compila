@@ -98,15 +98,6 @@ class tngListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by tngParser#TipoChar.
-    def enterTipoChar(self, ctx:tngParser.TipoCharContext):
-        pass
-
-    # Exit a parse tree produced by tngParser#TipoChar.
-    def exitTipoChar(self, ctx:tngParser.TipoCharContext):
-        pass
-
-
     # Enter a parse tree produced by tngParser#TipoFloat.
     def enterTipoFloat(self, ctx:tngParser.TipoFloatContext):
         pass
@@ -122,6 +113,42 @@ class tngListener(ParseTreeListener):
 
     # Exit a parse tree produced by tngParser#TipoBool.
     def exitTipoBool(self, ctx:tngParser.TipoBoolContext):
+        pass
+
+
+    # Enter a parse tree produced by tngParser#TipoString.
+    def enterTipoString(self, ctx:tngParser.TipoStringContext):
+        pass
+
+    # Exit a parse tree produced by tngParser#TipoString.
+    def exitTipoString(self, ctx:tngParser.TipoStringContext):
+        pass
+
+
+    # Enter a parse tree produced by tngParser#string.
+    def enterString(self, ctx:tngParser.StringContext):
+        pass
+
+    # Exit a parse tree produced by tngParser#string.
+    def exitString(self, ctx:tngParser.StringContext):
+        pass
+
+
+    # Enter a parse tree produced by tngParser#bool.
+    def enterBool(self, ctx:tngParser.BoolContext):
+        pass
+
+    # Exit a parse tree produced by tngParser#bool.
+    def exitBool(self, ctx:tngParser.BoolContext):
+        pass
+
+
+    # Enter a parse tree produced by tngParser#id.
+    def enterId(self, ctx:tngParser.IdContext):
+        pass
+
+    # Exit a parse tree produced by tngParser#id.
+    def exitId(self, ctx:tngParser.IdContext):
         pass
 
 

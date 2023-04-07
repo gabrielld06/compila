@@ -2,7 +2,7 @@ grammar tng;
 
 expression : term ((MAIS | MENOS) term)*;
 
-atribuicao : IDENTIFIER ATRIB (expression | STRING | BOOL | IDENTIFIER) PV;
+atribuicao : IDENTIFIER ATRIB (id | string | bool | expression) PV;
 
 declaracao : tipo atribuicao;
 
@@ -18,10 +18,16 @@ number : INTEGER        # Integer
        ;
 
 tipo : TIPO_INT         # TipoInt
-     | TIPO_CHAR        # TipoChar
      | TIPO_FLOAT       # TipoFloat
      | TIPO_BOOL        # TipoBool
+     | TIPO_STRING      # TipoString
      ;
+
+string : STRING; // foi necessário por causa da geração do analisador síntatico
+
+bool : BOOL; // foi necessário por causa da geração do analisador síntatico
+
+id : IDENTIFIER; // foi necessário por causa da geração do analisador síntatico
 
 comando : (declaracao | atribuicao | chamada_print | if_bloco | for_bloco | while_bloco);
 
@@ -52,7 +58,7 @@ WHILE : 'while';
 RETURN : 'return';
 PRINT : 'print';
 TIPO_INT : 'int';
-TIPO_CHAR : 'char';
+TIPO_STRING : 'string';
 TIPO_FLOAT : 'float';
 TIPO_BOOL : 'bool';
 MAIN : 'main';
