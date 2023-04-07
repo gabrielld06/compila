@@ -39,6 +39,11 @@ class tngVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by tngParser#chamada_input.
+    def visitChamada_input(self, ctx:tngParser.Chamada_inputContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by tngParser#Integer.
     def visitInteger(self, ctx:tngParser.IntegerContext):
         return self.visitChildren(ctx)

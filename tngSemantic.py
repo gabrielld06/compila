@@ -32,10 +32,12 @@ else:
 #       precedencia booleana -> NOT | ( ) -> AND -> OR -> (OP_RELACIONAIS) ;; fazer a regra no mesmo formato da expr aritmetica deve funcionar e sem muito trabalho
 #           exemplo:    True or False and False deve retornar True
 #       linha e bloco de comentario
-# TODO: ver se ta certo o tratamento de expressão -> parece q sim :) 
-#       for, while
 #       input de dados (cin, scan)
+#       for, while
+# TODO: ver se ta certo o tratamento de expressão -> parece q sim :) 
 #       arquivos de testes que cobrem todos os erros && testes automatizado :3
+#       otimização?
+#       assembly?
 
 
 class tngSemantic(tngVisitor):
@@ -65,7 +67,7 @@ class tngSemantic(tngVisitor):
     # Insere c no codigo fonte a ser compilado
     def insertCode(self, c) -> None:
         if len(self.errors) == 0:
-            self.code += c
+            self.code += c + '\n'
 
 
     '''
@@ -81,7 +83,7 @@ class tngSemantic(tngVisitor):
 
         left = self.visit(c)
         
-        if not left: return None
+        if left == None: return None
         
         for i in range(1, nodes):
             c = ctx.getChild(i)
@@ -92,7 +94,7 @@ class tngSemantic(tngVisitor):
 
             right = self.visit(c)
             
-            if not right: return None
+            if right == None: return None
 
             if type(left) != str and type(right) != str:
                 if op == '+':
@@ -112,7 +114,7 @@ class tngSemantic(tngVisitor):
         c = ctx.getChild(0)
         left = self.visit(c)
 
-        if not left: return None
+        if left == None: return None
         
         for i in range(1, nodes):
             c = ctx.getChild(i)
@@ -123,7 +125,7 @@ class tngSemantic(tngVisitor):
 
             right = self.visit(c)
 
-            if not right: return None
+            if right == None: return None
 
             if type(left) != str and type(right) != str:
                 if op == '*':
@@ -148,7 +150,7 @@ class tngSemantic(tngVisitor):
             type = tngLexer.symbolicNames[token.type]   # pega o nome do tipo do nó terminal
 
             if type == 'IDENTIFIER':
-                if not value: return None
+                if value == None: return None
 
                 nome = value.getText()
 
@@ -248,11 +250,11 @@ class tngSemantic(tngVisitor):
 
             left = self.visit(ctx.expression()[0])
 
-            if not left: return None
+            if left == None: return None
 
             right = self.visit(ctx.expression()[1])
 
-            if not right: return None
+            if right == None: return None
 
             if type(left) != str and type(right) != str:
                 if op == '<':
@@ -267,8 +269,8 @@ class tngSemantic(tngVisitor):
                     return left == right
                 else:
                     return left != right
-            else:
-                return f"{left if type(left) == str else ('true' if left else 'false')} {op} {right if type(right) == str else ('true' if right else 'false')}"
+            else:                
+                return f"{left} {op} {right}"
 
 
     '''
@@ -278,11 +280,13 @@ class tngSemantic(tngVisitor):
 
     # Visit a parse tree produced by tngParser#inicio.
     def visitInicio(self, ctx:tngParser.InicioContext) -> None:
-        self.insertCode("#include <iostream>\nusing namespace std;\nint main(){\n")
+        self.insertCode("#include <iostream>\nusing namespace std;\nint main(){")
 
-        self.visitChildren(ctx)
+        for c in ctx.comando():
+            code = self.visit(c)
+            if code != None: self.insertCode(code)
 
-        self.insertCode("return 0;\n}\n")
+        self.insertCode("return 0;\n}")
 
 
     # Visit a parse tree produced by tngParser#comando.
@@ -292,23 +296,24 @@ class tngSemantic(tngVisitor):
     
     # Visit a parse tree produced by tngParser#atribuicao.
     # atribuicao : IDENTIFIER ATRIB (id | expression | string | expr_bool) PV;
-    # INT <- INT FLOAT
-    # FLOAT <- INT FLOAT
+    # INT <- INT | FLOAT
+    # FLOAT <- INT | FLOAT
     # BOOL <- BOOL
     # STRING <- STRING
     def visitAtribuicao(self, ctx:tngParser.AtribuicaoContext) -> str | None:
-        identificador = ctx.IDENTIFIER()     # identificador
+        identificador = ctx.id_()[0].IDENTIFIER()   # identificador
 
-        if not identificador: return None
+        nome = self.visit(ctx.getChild(0))          # nome do identificador
+        
+        if nome == None: return None
 
-        nome = identificador.getText()          # nome do identificador
         token = identificador.symbol            # simbolo do identificador
         tipo = self.symbolTable[nome]['tipo']   # pega o nome do tipo do identificador
 
         c = ctx.getChild(2)                     # (id | expression | string | bool)
         value = self.visit(c)
         
-        if not value: return None
+        if value == None: return None
 
         try:
             if ctx.expression():    # atribuição de expressões aritmeticas
@@ -333,15 +338,14 @@ class tngSemantic(tngVisitor):
                 if tipo == 'string' and tipo_val == 'STRING':
                     self.symbolTable[nome]['value'] = value
                 elif tipo_val == 'IDENTIFIER':
-                    value_atr = self.symbolTable[value]['value']
                     tipo_atr = self.symbolTable[value]['tipo']
 
                     if tipo == tipo_atr:
-                        self.symbolTable[nome]['value'] = value_atr
+                        self.symbolTable[nome]['value'] = value
                     elif tipo == 'int' and tipo_atr == 'float':
-                        self.symbolTable[nome]['value'] = (int(value_atr) if type(value_atr) != str else value_atr)
+                        self.symbolTable[nome]['value'] = (int(value) if type(value) != str else value)
                     elif tipo == 'float' and tipo_atr == 'int':
-                        self.symbolTable[nome]['value'] = (float(value_atr) if type(value_atr) != str else value_atr)
+                        self.symbolTable[nome]['value'] = (float(value) if type(value) != str else value)
                     else:
                         raise Exception(f"Type conversion from {tipo_atr} to {tipo} not supported")
                 else:
@@ -356,16 +360,14 @@ class tngSemantic(tngVisitor):
 
             return None
             
-        self.insertCode(f"{nome} = {self.symbolTable[nome]['value']};\n")
-            
-        return value
+        return f"{nome} = {self.symbolTable[nome]['value']};"
 
 
     # Visit a parse tree produced by tngParser#declaracao.
     def visitDeclaracao(self, ctx:tngParser.DeclaracaoContext) -> str | None:
         tipo = ctx.tipo().getText()                         # int, float, bool, char ou string
-        identificador = ctx.atribuicao().IDENTIFIER()    # identificador | pode ter dois identificadores, por isso [0] 
-        nome = ctx.atribuicao().IDENTIFIER().getText()   # nome do identificador
+        identificador = ctx.atribuicao().id_()[0].IDENTIFIER()       # identificador | pode ter dois identificadores, por isso [0] 
+        nome = identificador.getText()      # nome do identificador
         token = identificador.symbol                        # simbolo do identificador
 
         if nome in self.symbolTable:
@@ -381,90 +383,114 @@ class tngSemantic(tngVisitor):
                 'value' : None
             }
 
-        self.insertCode(f"{tipo} ")
-
-        return self.visit(ctx.atribuicao())
+        return f'{tipo} {self.visit(ctx.atribuicao())}'
     
 
     # Visit a parse tree produced by tngParser#chamada_print.
-    # PRINT PAR_E (STRING | IDENTIFIER) PAR_D;
-    def visitChamada_print(self, ctx:tngParser.Chamada_printContext) -> None:
-        self.insertCode("cout << ")
+    # PRINT PAR_E (string | id) PAR_D PV;
+    def visitChamada_print(self, ctx:tngParser.Chamada_printContext) -> str | None:
 
-        if ctx.IDENTIFIER():
-            identificador = ctx.IDENTIFIER()     # identificador
-            nome = ctx.IDENTIFIER().getText()    # nome do identificador
-            token = identificador.symbol
-            
-            if nome in self.symbolTable:
-                self.insertCode(f"{nome} ")
-            else:
-                self.errors.append({
-                    'error' : 'Variable not declared',
-                    'id'    : nome,
-                    'line'  : token.line,
-                    'column': token.column
-                })
-        else:
-            self.insertCode(f"{ctx.STRING().getText()} ")
+        string = self.visit(ctx.getChild(2))
 
-        self.insertCode("<< endl;\n")
+        if string == None: return None
 
-        return None
+        return f"cout << {string} << endl;"
     
     
+    # Visit a parse tree produced by tngParser#chamada_input.
+    # chamada_input : INPUT PAR_E id PAR_D PV;
+    def visitChamada_input(self, ctx:tngParser.Chamada_inputContext) -> str | None:
+
+        identifier = self.visit(ctx.id_())
+
+        if not identifier: return None
+
+        return f"cin >> {identifier};"
+    
+
     # Visit a parse tree produced by tngParser#if_bloco.
     # if_bloco : IF PAR_E expr_bool PAR_D CHAVE_E (comando)* CHAVE_D else_bloco?;
-    def visitIf_bloco(self, ctx:tngParser.If_blocoContext) -> None:
+    def visitIf_bloco(self, ctx:tngParser.If_blocoContext) -> str | None:
         c = ctx.expr_bool()
 
         cond = self.visit(c)
 
-        print('cond', cond)
-
-        self.insertCode(f"if({cond}) {{\n")
+        code = f"if({cond}) {{\n"
 
         comandos = ctx.comando()
         
         for c in comandos:
-            self.visit(c)
+            cmd = self.visit(c)
+            if cmd != None: code += cmd + '\n'
 
-        self.insertCode(f"}}\n")
+        code += f"}}"
 
         if ctx.else_bloco():
-            self.visit(ctx.else_bloco())
+            code += self.visit(ctx.else_bloco())
         
-        return None
+        return code
 
 
     # Visit a parse tree produced by tngParser#else_bloco.
     # else_bloco : ELSE (if_bloco | CHAVE_E (comando)* CHAVE_D);
-    def visitElse_bloco(self, ctx:tngParser.Else_blocoContext) -> None:
+    def visitElse_bloco(self, ctx:tngParser.Else_blocoContext) -> str | None:
         if ctx.if_bloco():
-            self.insertCode(f"else ")
+            code = f" else "
 
-            ctx.if_bloco().accept(self)
+            code += self.visit(ctx.if_bloco())
         else:
-            self.insertCode(f"else {{\n")
+            code = f" else {{\n"
 
             comandos = ctx.comando()
             
             for c in comandos:
-                c.accept(self)
+                cmd = self.visit(c)
+                if cmd != None: code += cmd + '\n'
 
-            self.insertCode(f"}}\n")
+            code += f"}}"
 
-        return None
+        return code
 
 
     # Visit a parse tree produced by tngParser#for_bloco.
-    def visitFor_bloco(self, ctx:tngParser.For_blocoContext) -> None:
-        return self.visitChildren(ctx)
+    # for_bloco : FOR PAR_E (declaracao | atribuicao)? expr_bool PV (it=atribuicao)? PAR_D CHAVE_E (comando)* CHAVE_D;
+    def visitFor_bloco(self, ctx:tngParser.For_blocoContext) ->  str | None:
+        inic = ';'
+        it = ' '
+        if ctx.declaracao() or ctx.atribuicao():
+            inic = self.visit(ctx.getChild(2))
+        if ctx.it:
+            it = self.visit(ctx.it)
+        
+        expr_bool = self.visit(ctx.expr_bool())
+
+        code = f'for({inic}{expr_bool};{it[:-1]}) {{\n'
+
+        comandos = ctx.comando()
+        for c in comandos:
+            cmd = self.visit(c)
+            if cmd != None: code += cmd + '\n'
+
+        code += f'}}'
+
+        return code
 
 
     # Visit a parse tree produced by tngParser#while_bloco.
-    def visitWhile_bloco(self, ctx:tngParser.While_blocoContext) -> None:
-        return self.visitChildren(ctx)
+    # while_bloco : WHILE PAR_E expr_bool PAR_D CHAVE_E (comando)* CHAVE_D;
+    def visitWhile_bloco(self, ctx:tngParser.While_blocoContext) -> str | None:        
+        expr_bool = self.visit(ctx.expr_bool())
+
+        code = f'while({expr_bool}) {{\n'
+
+        comandos = ctx.comando()
+        for c in comandos:
+            cmd = self.visit(c)
+            if cmd != None: code += cmd + '\n'
+
+        code += f'}}'
+
+        return code
 
 
     '''
@@ -523,8 +549,6 @@ class tngSemantic(tngVisitor):
     
     # Visit a parse tree produced by tngParser#Identifier. -> desnecessario?
     def visitIdentifier(self, ctx:tngParser.IdentifierContext) -> str | None:
-        print(ctx.IDENTIFIER().getText())
-
         if ctx.IDENTIFIER().getText() in self.symbolTable:
             return ctx.IDENTIFIER()
         else:

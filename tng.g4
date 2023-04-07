@@ -6,11 +6,13 @@ term : factor ((MULT | DIV | MOD) factor)*;
 
 factor : number | PAR_E expression PAR_D;
 
-atribuicao : IDENTIFIER ATRIB (id | string | expr_bool | expression) PV;
+atribuicao : id ATRIB (id | string | expr_bool | expression) PV;
 
-declaracao : tipo atribuicao;
+declaracao : tipo atribuicao?;
 
-chamada_print : PRINT PAR_E (STRING | IDENTIFIER) PAR_D PV;
+chamada_print : PRINT PAR_E (string | id | expression | expr_bool) PAR_D PV;
+
+chamada_input : INPUT PAR_E id PAR_D PV;
 
 number : INTEGER        # Integer
        | FLOAT          # Float
@@ -29,14 +31,9 @@ bool : BOOL; // foi necessário por causa da geração do analisador síntatico
 
 id : IDENTIFIER; // foi necessário por causa da geração do analisador síntatico
 
-comando : (declaracao | atribuicao | chamada_print | if_bloco | for_bloco | while_bloco);
+comando : (declaracao | atribuicao | chamada_print | chamada_input | if_bloco | for_bloco | while_bloco);
 
 inicio : MAIN CHAVE_E (comando)* CHAVE_D EOF;
-
-// bool
-// expr_bool   : (expression OP_LOGICO expression) | BOOL;
-// fator_bool  : NOT? (PAR_E expr_bool PAR_D | expr_bool);
-// cond        : fator_bool ((AND | OR) fator_bool)*;
 
 expr_bool      : term_bool (OR term_bool)*;
 term_bool      : factor_bool (AND factor_bool)*;
@@ -50,10 +47,10 @@ if_bloco  : IF PAR_E expr_bool PAR_D CHAVE_E (comando)* CHAVE_D else_bloco?;
 else_bloco : ELSE (if_bloco | CHAVE_E (comando)* CHAVE_D);
 
 // for
-for_bloco : FOR PAR_E atribuicao? PV expr_bool? PV atribuicao? PAR_D CHAVE_E (comando)* CHAVE_D;
+for_bloco : FOR PAR_E (declaracao | atribuicao)? expr_bool PV (it=atribuicao)? PAR_D CHAVE_E (comando)* CHAVE_D;
 
 // while
-while_bloco : FOR PAR_E expr_bool PAR_D CHAVE_E (comando)* CHAVE_D;
+while_bloco : WHILE PAR_E expr_bool PAR_D CHAVE_E (comando)* CHAVE_D;
 
 // Palavras-chave
 IF             : 'if';
@@ -62,6 +59,7 @@ FOR            : 'for';
 WHILE          : 'while';
 RETURN         : 'return';
 PRINT          : 'print';
+INPUT          : 'input';
 TIPO_INT       : 'int';
 TIPO_STRING    : 'string';
 TIPO_FLOAT     : 'float';
@@ -103,11 +101,11 @@ PONTO     : '.';
 INTEGER             : [0-9]+;
 FLOAT               : [0-9]+ '.' [0-9]* | '.' [0-9]+;
 BOOL                : 'True' | 'False';
-IDENTIFIER          : [a-zA-Z][a-zA-Z0-9]*;
+IDENTIFIER          : [a-zA-Z][a-zA-Z0-9_]*;
 STRING              : '"' ( CHAR_ESP | ~('\\'|'"') )* '"'; // aceita todos os caracteres exceto \ e "
 fragment CHAR_ESP   : '\\' [tnr"'\\]; // CHAR_ESP pode ser \t, \n, \r, '\"' e \\
 
 // Ignora espaços brancos
 WS             : [ \t\n\r]+ -> skip;
-COMMENT        : ('//' | '#') ~[\r\n]* -> skip;
-BlockComment   : '/*' .*? '*/' -> skip;
+LINECOMMENT    : ('//' | '#') ~[\r\n]* -> skip;
+BLOCKCOMMENT   : '/*' .*? '*/' -> skip;

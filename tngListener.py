@@ -62,6 +62,15 @@ class tngListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by tngParser#chamada_input.
+    def enterChamada_input(self, ctx:tngParser.Chamada_inputContext):
+        pass
+
+    # Exit a parse tree produced by tngParser#chamada_input.
+    def exitChamada_input(self, ctx:tngParser.Chamada_inputContext):
+        pass
+
+
     # Enter a parse tree produced by tngParser#Integer.
     def enterInteger(self, ctx:tngParser.IntegerContext):
         pass

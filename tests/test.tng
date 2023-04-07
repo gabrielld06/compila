@@ -1,25 +1,24 @@
+
 main {
-    int fon = 2 + 3 * 4 - (5 + 3);
+    int fib = 0;
 
-    string x = "2+fon";
+    input(fib);
 
-    bool a = 2 + 2 < 4;
-    bool b = 2 + 2 > 4;
-    bool c = 2 + 2 <= 4;
-    bool d = 2 + 2 >= 4;
-    bool e = 2 + 2 == 4;
-    bool f = 2 + 2 != 4;
-    bool g = True and False or False;
-    bool h = True or False and False;
-    // bool i = 2 + 2; // ERROR
+    if(fib == 0) {
+        print(0);
+    } else if(fib == 1 or fib == 2) {
+        print(1);
+    } else {
+        int fib2 = 1;
+        int fib1 = 1;
+        int x = 0;
 
-    if(a) {
-        print("fon");
+        for(int i = 2;i < fib;i = i + 1;) {
+            x = fib2 + fib1;
+            fib2 = fib1;
+            fib1 = x;
+        }
+
+        print(x);
     }
-
-    int asdfasdf34 = 2+fon;
-
-    print("Hello World!");
-
-    print(asdfasdf34);
 }

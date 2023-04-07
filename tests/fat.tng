@@ -1,0 +1,12 @@
+main {
+    int fon = 0;
+
+    input(fon);
+
+    int x = 1;
+    for(int i = 1;i <= fon;i = i + 1;){
+        x = x * i;
+    }
+
+    print(x);
+}

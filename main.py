@@ -3,7 +3,8 @@ from tngLexer import tngLexer
 from tngParser import tngParser
 from tngVisitor import tngVisitor
 from tngSemantic import tngSemantic
-import os, subprocess
+import os, subprocess, sys
+import inspect # print(inspect.getmembers(token.getTokenSource(), predicate=inspect.ismethod)) # get class methods
 
 # Open the input file
 with open('tests/test.tng', 'r') as f:
@@ -18,13 +19,17 @@ token_stream.fill()
 token_list = token_stream.tokens
 
 # ID / START:END POSITION = TOKEN_TXT / TOKEN_TYPE / LINHA:COLUNA
-for tk in token_list:
-    print(tk)
+# for tk in token_list:
+#     print(tk)
 
 parser = tngParser(token_stream)
 
 # Parse the input file and create the syntax tree
 tree = parser.inicio()
+
+if parser.getNumberOfSyntaxErrors() > 0:
+    print('Errors were found. Exiting compiler...')
+    sys.exit(0)
 
 # Traverse the syntax tree using the custom visitor object
 visitor = tngSemantic()
