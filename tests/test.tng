@@ -3,7 +3,21 @@ main {
 
     string x = "2+fon";
 
-    int asdfasdf34 = 2+x;
+    bool a = 2 + 2 < 4;
+    bool b = 2 + 2 > 4;
+    bool c = 2 + 2 <= 4;
+    bool d = 2 + 2 >= 4;
+    bool e = 2 + 2 == 4;
+    bool f = 2 + 2 != 4;
+    bool g = True and False or False;
+    bool h = True or False and False;
+    // bool i = 2 + 2; // ERROR
+
+    if(a) {
+        print("fon");
+    }
+
+    int asdfasdf34 = 2+fon;
 
     print("Hello World!");
 

@@ -17,6 +17,24 @@ class tngListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by tngParser#term.
+    def enterTerm(self, ctx:tngParser.TermContext):
+        pass
+
+    # Exit a parse tree produced by tngParser#term.
+    def exitTerm(self, ctx:tngParser.TermContext):
+        pass
+
+
+    # Enter a parse tree produced by tngParser#factor.
+    def enterFactor(self, ctx:tngParser.FactorContext):
+        pass
+
+    # Exit a parse tree produced by tngParser#factor.
+    def exitFactor(self, ctx:tngParser.FactorContext):
+        pass
+
+
     # Enter a parse tree produced by tngParser#atribuicao.
     def enterAtribuicao(self, ctx:tngParser.AtribuicaoContext):
         pass
@@ -41,24 +59,6 @@ class tngListener(ParseTreeListener):
 
     # Exit a parse tree produced by tngParser#chamada_print.
     def exitChamada_print(self, ctx:tngParser.Chamada_printContext):
-        pass
-
-
-    # Enter a parse tree produced by tngParser#term.
-    def enterTerm(self, ctx:tngParser.TermContext):
-        pass
-
-    # Exit a parse tree produced by tngParser#term.
-    def exitTerm(self, ctx:tngParser.TermContext):
-        pass
-
-
-    # Enter a parse tree produced by tngParser#factor.
-    def enterFactor(self, ctx:tngParser.FactorContext):
-        pass
-
-    # Exit a parse tree produced by tngParser#factor.
-    def exitFactor(self, ctx:tngParser.FactorContext):
         pass
 
 
@@ -179,12 +179,21 @@ class tngListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by tngParser#fator_bool.
-    def enterFator_bool(self, ctx:tngParser.Fator_boolContext):
+    # Enter a parse tree produced by tngParser#term_bool.
+    def enterTerm_bool(self, ctx:tngParser.Term_boolContext):
         pass
 
-    # Exit a parse tree produced by tngParser#fator_bool.
-    def exitFator_bool(self, ctx:tngParser.Fator_boolContext):
+    # Exit a parse tree produced by tngParser#term_bool.
+    def exitTerm_bool(self, ctx:tngParser.Term_boolContext):
+        pass
+
+
+    # Enter a parse tree produced by tngParser#factor_bool.
+    def enterFactor_bool(self, ctx:tngParser.Factor_boolContext):
+        pass
+
+    # Exit a parse tree produced by tngParser#factor_bool.
+    def exitFactor_bool(self, ctx:tngParser.Factor_boolContext):
         pass
 
 

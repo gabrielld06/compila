@@ -14,6 +14,16 @@ class tngVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by tngParser#term.
+    def visitTerm(self, ctx:tngParser.TermContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by tngParser#factor.
+    def visitFactor(self, ctx:tngParser.FactorContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by tngParser#atribuicao.
     def visitAtribuicao(self, ctx:tngParser.AtribuicaoContext):
         return self.visitChildren(ctx)
@@ -26,16 +36,6 @@ class tngVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by tngParser#chamada_print.
     def visitChamada_print(self, ctx:tngParser.Chamada_printContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by tngParser#term.
-    def visitTerm(self, ctx:tngParser.TermContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by tngParser#factor.
-    def visitFactor(self, ctx:tngParser.FactorContext):
         return self.visitChildren(ctx)
 
 
@@ -104,8 +104,13 @@ class tngVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by tngParser#fator_bool.
-    def visitFator_bool(self, ctx:tngParser.Fator_boolContext):
+    # Visit a parse tree produced by tngParser#term_bool.
+    def visitTerm_bool(self, ctx:tngParser.Term_boolContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by tngParser#factor_bool.
+    def visitFactor_bool(self, ctx:tngParser.Factor_boolContext):
         return self.visitChildren(ctx)
 
 
