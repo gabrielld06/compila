@@ -14,8 +14,10 @@ A geração de código será feita para a linguagem C++.
 
 ### Execução
 
-Instalar todas as dependências com o comando "pip install -r requirements.txt"
-
-Para compilar, use o comando "antlr.bat compile"
-
-Para gerar a árvore sintática, use o comando "antlr.bat tree"
+- Instalar todas as dependências com o comando "pip install -r requirements.txt"
+  - Também requer g++ para compilar o código gerado em C++
+- Para gerar os arquivos de análise léxica e sintática, use o comando "antlr.bat compile"
+- Para gerar a árvore sintática de um programa, use o comando "antlr.bat tree \<nomeDoArquivo\>"
+  - Caso não seja fornecido um arquivo de entrada, "tests/test.tng" é utilizado por padrão
+- Para executar o compilador com um arquivo de entrada, use "python3 tngCompiler.py \<nomeDoArquivo\>"
+  - Caso não seja fornecido um arquivo de entrada, "tests/test.tng" é compilado por padrão
