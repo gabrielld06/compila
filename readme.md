@@ -21,4 +21,5 @@ A geração de código será feita para a linguagem C++.
   - Caso não seja fornecido um arquivo de entrada, "tests/test.tng" é utilizado por padrão
 - Para executar o compilador com um arquivo de entrada, use "python3 tngCompiler.py \<nomeDoArquivo\>"
   - Caso não seja fornecido um arquivo de entrada, "tests/test.tng" é compilado por padrão
+  - O arquivo C++ resultante é nomeado "output.cpp"
 - Finalmente, executar o programa compilado com "./output"
