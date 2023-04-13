@@ -1,3 +1,4 @@
+# Exemplo com cálculo de um termo da sequência de Fibonacci
 
 main {
     int fib = 0;

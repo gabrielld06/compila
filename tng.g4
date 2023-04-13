@@ -57,7 +57,6 @@ IF             : 'if';
 ELSE           : 'else';
 FOR            : 'for';
 WHILE          : 'while';
-RETURN         : 'return';
 PRINT          : 'print';
 INPUT          : 'input';
 TIPO_INT       : 'int';

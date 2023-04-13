@@ -1,10 +1,10 @@
 main {
-    int fon = 0;
+    int fat = 0;
 
-    input(fon);
+    input(fat);
 
     int x = 1;
-    for(int i = 1;i <= fon;i = i + 1;){
+    for(int i = 1;i <= fat;i = i + 1;){
         x = x * i;
     }
 

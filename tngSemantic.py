@@ -8,38 +8,6 @@ if __name__ is not None and "." in __name__:
 else:
     from tngParser import tngParser
 
-
-# DONE (eu acho) atribuição, declaração e tratamento de expressões
-#   * expressões são resolvidas se possiveis (não possuem variaveis), então já é feita uma mini otimização
-#       no caso de uma expressão possuir uma variavel, é armazenado uma string com ela, no test, 
-#           fon é uma expressão possivel de se resolver completamente e asdfasdf34 não
-#       atribuição, declaração e tratamento de expressões booleanas
-#       if, else
-#       print
-#       06/04:
-#       exprVistor gera erro se tiver identificador não numerico (stirng / bool)
-#       atribuição obedece o seguinte:
-#           INT <- INT | FLOAT
-#           FLOAT <- INT | FLOAT
-#           BOOL <- BOOL
-#           STRING <- STRING
-#               gerando erro caso contrario;
-#               tive que fazer um id : IDENTIFIER nas regras mesmo motivo (esse codigo ia ficar mais feio se nao tivesse, é o sacrificio);
-#                   um detalhe sobre a regra, o antlr resolve redundancias pela ordem de aparencia na regra, por isso, pra identificar identificadores, id deve vir antes
-#                       caso contrario consideraria os identificadores como expression
-#                           -> atribuicao : IDENTIFIER ATRIB (id | expression | string | bool) PV;
-#       07/04
-#       precedencia booleana -> NOT | ( ) -> AND -> OR -> (OP_RELACIONAIS) ;; fazer a regra no mesmo formato da expr aritmetica deve funcionar e sem muito trabalho
-#           exemplo:    True or False and False deve retornar True
-#       linha e bloco de comentario
-#       input de dados (cin, scan)
-#       for, while
-# TODO: ver se ta certo o tratamento de expressão -> parece q sim :) 
-#       arquivos de testes que cobrem todos os erros && testes automatizado :3
-#       otimização?
-#       assembly?
-
-
 class tngSemantic(tngVisitor):
     
     def __init__(self):
@@ -57,7 +25,7 @@ class tngSemantic(tngVisitor):
                             # 'line'  : int,
                             # 'column': int
                             # }
-        
+        # Guarda o código gerado ao explorar a árvore sintática
         self.code = ""
 
     # Retorna se o programa deve ser compilado ou não
